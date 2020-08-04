@@ -6,22 +6,45 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
-//    @Test
-//    void getCurrentRadioStation() {
-//    }
-//
-//    @Test
-//    void setCurrentRadioStation() {
-//
-//    }
-//
-//    @Test
-//    void getVolumeLevel() {
-//    }
-//
-//    @Test
-//    void setVolumeLevel() {
-//    }
+    @Test
+    void getCurrentRadioStation() {
+        Radio radio = new Radio();
+        assertEquals(0,radio.getCurrentRadioStation());
+    }
+
+    @Test
+    void setCurrentRadioStation() {
+        Radio radio = new Radio();
+        radio.setCurrentRadioStation(11);
+        assertEquals(0,radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(-1);
+        assertEquals(0,radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(0);
+        assertEquals(0,radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(5);
+        assertEquals(5,radio.getCurrentRadioStation());
+
+
+    }
+
+    @Test
+    void getVolumeLevel() {
+        Radio radio = new Radio();
+        assertEquals(0,radio.getVolumeLevel());
+    }
+
+    @Test
+    void setVolumeLevel() {
+        Radio radio = new Radio();
+        radio.setVolumeLevel(11);
+        assertEquals(0,radio.getVolumeLevel());
+        radio.setVolumeLevel(-1);
+        assertEquals(0,radio.getVolumeLevel());
+        radio.setVolumeLevel(10);
+        assertEquals(10,radio.getVolumeLevel());
+        radio.setVolumeLevel(0);
+        assertEquals(0,radio.getVolumeLevel());
+    }
 
     @Test
     public void shouldChangeRadioStation() {
