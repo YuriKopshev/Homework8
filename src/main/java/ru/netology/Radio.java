@@ -33,26 +33,26 @@ public class Radio {
         this.volumeLevel = volumeLevel;
     }
 
-    public int nextRadioStation(int currentRadioStation) {
+    public int nextRadioStation() {
         if (currentRadioStation == 9) {
             currentRadioStation = 0;
-            return this.currentRadioStation = currentRadioStation;
+            return currentRadioStation;
         } else {
             return this.currentRadioStation++;
         }
     }
 
-    public int prevRadioStation(int currentRadioStation) {
+    public int prevRadioStation() {
         if (currentRadioStation == 0) {
             currentRadioStation = 9;
-            return this.currentRadioStation = currentRadioStation;
+            return currentRadioStation;
         } else {
             return this.currentRadioStation--;
         }
     }
 
 
-    public void increaseVolume(int volumeLevel) {
+    public void increaseVolume() {
         if (volumeLevel == 10) {
             return;
         }
@@ -62,7 +62,7 @@ public class Radio {
 
     }
 
-    public void decreaseVolume(int volumeLevel) {
+    public void decreaseVolume() {
         if (volumeLevel == 0) {
             return;
         }
