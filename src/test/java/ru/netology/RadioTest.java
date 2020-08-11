@@ -10,6 +10,7 @@ class RadioTest {
     void getCurrentRadioStation() {
         Radio radio = new Radio();
         assertEquals(0,radio.getCurrentRadioStation());
+
     }
 
     @Test
@@ -23,6 +24,8 @@ class RadioTest {
         assertEquals(0,radio.getCurrentRadioStation());
         radio.setCurrentRadioStation(5);
         assertEquals(5,radio.getCurrentRadioStation());
+        radio.setCurrentRadioStation(10);
+        assertEquals(10,radio.getCurrentRadioStation());
 
 
     }
@@ -32,30 +35,31 @@ class RadioTest {
         Radio radio = new Radio();
         assertEquals(0,radio.getVolumeLevel());
     }
-
-    @Test
-    void setVolumeLevel() {
-        Radio radio = new Radio();
-        radio.setVolumeLevel(11);
-        assertEquals(0,radio.getVolumeLevel());
-        radio.setVolumeLevel(-1);
-        assertEquals(0,radio.getVolumeLevel());
-        radio.setVolumeLevel(10);
-        assertEquals(10,radio.getVolumeLevel());
-        radio.setVolumeLevel(0);
-        assertEquals(0,radio.getVolumeLevel());
+   @Test
+    void setVolumeLevel(){
+       Radio radio = new Radio();
+       radio.setVolumeLevel(50);
+       assertEquals(50,radio.getVolumeLevel());
+       radio.setVolumeLevel(101);
+       assertEquals(50,radio.getVolumeLevel());
+       radio.setVolumeLevel(0);
+       assertEquals(0,radio.getVolumeLevel());
+       radio.setVolumeLevel(-10);
+       assertEquals(0,radio.getVolumeLevel());
     }
+
+
 
     @Test
     public void shouldChangeRadioStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(12);
         radio.setCurrentRadioStation(0);
         radio.prevRadioStation();
-        assertEquals(9, radio.getCurrentRadioStation());
+        assertEquals(12, radio.getCurrentRadioStation());
         radio.setCurrentRadioStation(5);
         radio.prevRadioStation();
         assertEquals(4, radio.getCurrentRadioStation());
-        radio.setCurrentRadioStation(9);
+        radio.setCurrentRadioStation(12);
         radio.nextRadioStation();
         assertEquals(0, radio.getCurrentRadioStation());
         radio.setCurrentRadioStation(0);
@@ -66,11 +70,11 @@ class RadioTest {
     @Test
     public void shouldChangeVolume() {
         Radio radio = new Radio();
-        radio.setVolumeLevel(10);
+        radio.setVolumeLevel(100);
         radio.increaseVolume();
-        assertEquals(10, radio.getVolumeLevel());
+        assertEquals(100, radio.getVolumeLevel());
         radio.decreaseVolume();
-        assertEquals(9, radio.getVolumeLevel());
+        assertEquals(99, radio.getVolumeLevel());
         radio.setVolumeLevel(0);
         radio.increaseVolume();
         assertEquals(1, radio.getVolumeLevel());
